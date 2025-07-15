@@ -1,11 +1,3 @@
-//========================================================
-// Módulo: top
-// Projeto: Piscar LEDs com clock de 50 MHz (DE10-Lite, por exemplo)
-// Autor: Passarão
-// Descrição: Usa um contador de 32 bits para gerar sinais
-//            mais lentos e piscar LEDs visivelmente.
-//========================================================
-
 module top (
     input CLOCK_50,           // Clock de entrada de 50 MHz
     output [9:0] LEDR         // Vetor de LEDs (LEDR[9:0])
