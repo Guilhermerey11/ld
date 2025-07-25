@@ -1,17 +1,15 @@
 module top(
-    input CLOCK_50, // 50 MHz clock
-    output [9:0] LEDR);
+    input CLOCK_50,       // Clock de 50 MHz da placa
+    output [9:0] LEDR     // Saída para os 10 LEDs
+);
 
-    integer count; // 32-bit counter
+
+    reg [31:0] count;     
+
     always @(posedge CLOCK_50)
-        count <= count + 1;
-    /*
-    count[0] = 25 MHz
-    count[1] = 12.5 MHz
-    count[2] = 6.25 MHz
-    ...
-    */
-    assign LEDR = count; // 32 > 10 
-    //assign LEDR = count[31:22];
-    //assign LEDR = {10{count[24]}}; // https://www.youtube.com/watch?v=jWkMhCLkVOg
+        count <= count + 1;  
+    assign LEDR = count[9:0];
+
+
+
 endmodule
