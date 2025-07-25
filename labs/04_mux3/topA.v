@@ -9,15 +9,19 @@ endmodule
 module mux3e (
     input x1, x2, x3, s0, s1,
     output f);
-    // Instancie e conecte os componentes abaixo  
+    
+
+    wire w1;
+    mux2 m1(w1, s0, x1, x2); // Seleciona entre x1 e x2 com s0
+    mux2 m2(f,  s1, w1, x3); // Seleciona entre w1 e x3 com s1
 
 endmodule
 
-// Funcional
 module mux3f (
     input x1, x2, x3, s0, s1,
     output f);
-    // Digite o seu código abaixo  
+    
+    assign f = (s1 == 0) ? (s0 ? x2 : x1) : x3;
 
 endmodule
 
